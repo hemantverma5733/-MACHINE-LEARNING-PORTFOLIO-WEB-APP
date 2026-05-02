@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}रोग पहचान - किसान सहायक{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center animate-fade-in">
+    <div class="col-md-8">
+        <div class="card shadow border-0 rounded-4">
+            <div class="card-header bg-success text-white p-4 rounded-top-4">
+                <h2 class="mb-0 fw-bold"><i class="fas fa-bug me-2"></i> फसल रोग पहचान (Crop Disease Prediction)</h2>
+            </div>
+            <div class="card-body p-4 p-md-5">
+                <p class="text-muted mb-4">खेत का तापमान, नमी और मिट्टी की नमी दर्ज़ करें। आप बोलकर भी जानकारी दे सकते हैं।</p>
+                
+                <div class="text-center mb-4 voice-section">
+                    <button class="btn btn-danger btn-lg voice-btn rounded-pill shadow-sm px-4 py-2 me-2" id="voiceBtn" type="button">
+                        <i class="fas fa-microphone me-2"></i> बोलकर भरें (Voice)
+                    </button>
+                    <button class="btn btn-info btn-lg text-white rounded-pill shadow-sm px-4 py-2" id="weatherBtn" type="button">
+                        <i class="fas fa-cloud-sun me-2"></i> मौसम भरें (Auto Weather)
+                    </button>
+                    <p class="mt-2 text-danger small d-none" id="recordingIndicator">रिकॉर्डिंग चल रही है... (Recording...)</p>
+                    <div id="voiceTranscript" class="text-primary mt-2 fst-italic"></div>
+                </div>
+
+                <form id="predictionForm" data-endpoint="/api/predict/disease">
+                    <div class="mb-3">
+                        <label for="temperature" class="form-label fw-bold">तापमान (Temperature °C)</label>
+                        <input type="number" step="0.1" class="form-control form-control-lg bg-light" id="temperature" name="temperature" required placeholder="जैसे: 30.5">
+                    </div>
+                    <div class="mb-3">
+                        <label for="humidity" class="form-label fw-bold">हवा में नमी (Humidity %)</label>
+                        <input type="number" step="0.1" class="form-control form-control-lg bg-light" id="humidity" name="humidity" required placeholder="जैसे: 60">
+                    </div>
+                    <div class="mb-4">
+                        <label for="moisture" class="form-label fw-bold">मिट्टी की नमी (Soil Moisture %)</label>
+                        <input type="number" step="0.1" class="form-control form-control-lg bg-light" id="moisture" name="moisture" required placeholder="जैसे: 45">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success btn-lg w-100 fw-bold shadow-sm">
+                        <i class="fas fa-search me-2"></i> रोग जांचें (Predict)
+                    </button>
+                </form>
+
+                <div id="resultContainer" class="mt-5 d-none animate-slide-in">
+                    <div class="alert alert-info border-0 shadow-sm rounded-3" id="reportContent">
+                        <h4 class="alert-heading fw-bold">परिणाम (Result):</h4>
+                        <p class="mb-0 fs-5 fw-semibold" id="predictionResult"></p>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button class="btn btn-outline-success" id="downloadPdfBtn" type="button">
+                            <i class="fas fa-file-pdf me-2"></i> रिपोर्ट डाउनलोड करें (Download PDF)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

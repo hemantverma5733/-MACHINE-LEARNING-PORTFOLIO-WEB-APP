@@ -1,0 +1,9 @@
+Flask
+pandas
+numpy
+scikit-learn
+SpeechRecognition
+nltk
+spacy
+joblib
+pydub

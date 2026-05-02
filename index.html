@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row align-items-center mb-5 hero-section">
+    <div class="col-lg-6 mb-4 mb-lg-0 text-center text-lg-start animate-fade-in">
+        <h1 class="display-3 fw-bolder text-success mb-3">किसान सहायक</h1>
+        <h2 class="h3 fw-light text-muted mb-4">आधुनिक खेती के लिए आपका डिजिटल साथी</h2>
+        <p class="lead mb-4">राजस्थान के किसानों के लिए विशेष रूप से डिज़ाइन किया गया। अपनी आवाज़ का उपयोग करके अपनी फसल की बीमारियों का पता लगाएं, उपज का अनुमान लगाएं, और सही फसल/खाद की सलाह प्राप्त करें।</p>
+        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-lg-start">
+            <a href="/disease" class="btn btn-success btn-lg px-4 gap-3"><i class="fas fa-bug"></i> रोग पहचानें</a>
+            <a href="/recommend" class="btn btn-outline-success btn-lg px-4"><i class="fas fa-seedling"></i> फसल सलाह</a>
+        </div>
+    </div>
+    <div class="col-lg-6 text-center animate-slide-in">
+        <img src="https://images.unsplash.com/photo-1592982537447-6f23f5c8e312?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Indian Farmer" class="img-fluid rounded-4 shadow-lg hero-img">
+    </div>
+</div>
+
+<div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+    <!-- Feature 1 -->
+    <div class="col animate-fade-up" style="animation-delay: 0.1s;">
+        <div class="card h-100 feature-card border-0 shadow-sm">
+            <div class="card-body text-center p-5">
+                <div class="feature-icon bg-success bg-gradient text-white rounded-circle mb-4 mx-auto shadow d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; font-size: 2rem;">
+                    <i class="fas fa-microscope"></i>
+                </div>
+                <h3 class="card-title fw-bold">रोग पहचान (Disease)</h3>
+                <p class="card-text text-muted">मौसम और मिट्टी की स्थिति के आधार पर अपनी फसल (गेहूँ, कपास) में लगने वाले रोगों की भविष्यवाणी करें।</p>
+                <a href="/disease" class="btn btn-link text-success text-decoration-none fw-bold mt-auto">उपयोग करें <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Feature 2 -->
+    <div class="col animate-fade-up" style="animation-delay: 0.2s;">
+        <div class="card h-100 feature-card border-0 shadow-sm">
+            <div class="card-body text-center p-5">
+                <div class="feature-icon bg-warning bg-gradient text-white rounded-circle mb-4 mx-auto shadow d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; font-size: 2rem;">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3 class="card-title fw-bold">उपज अनुमान (Yield)</h3>
+                <p class="card-text text-muted">अपनी खेती के क्षेत्रफल, बारिश, और खाद के उपयोग के आधार पर फसल की अनुमानित उपज (टन में) जानें।</p>
+                <a href="/yield" class="btn btn-link text-warning text-decoration-none fw-bold mt-auto">उपयोग करें <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Feature 3 -->
+    <div class="col animate-fade-up" style="animation-delay: 0.3s;">
+        <div class="card h-100 feature-card border-0 shadow-sm">
+            <div class="card-body text-center p-5">
+                <div class="feature-icon bg-info bg-gradient text-white rounded-circle mb-4 mx-auto shadow d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; font-size: 2rem;">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h3 class="card-title fw-bold">फसल सलाह (Recommend)</h3>
+                <p class="card-text text-muted">मिट्टी की जाँच (N, P, K, pH) के आधार पर आपके खेत के लिए सबसे उपयुक्त फसल की सलाह प्राप्त करें।</p>
+                <a href="/recommend" class="btn btn-link text-info text-decoration-none fw-bold mt-auto">उपयोग करें <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Voice Assistant Section -->
+<div class="row mt-5 p-5 bg-light rounded-4 shadow-sm align-items-center text-center text-lg-start animate-fade-in">
+    <div class="col-lg-8 mb-4 mb-lg-0">
+        <h2 class="fw-bold text-dark"><i class="fas fa-microphone-alt text-danger me-2"></i> बोलकर टाइप करें!</h2>
+        <p class="lead mb-0">अब आपको टाइप करने की ज़रुरत नहीं। बस माइक बटन दबाएं और हिंदी में बोलकर अपनी जानकारी दर्ज़ करें। हमारा AI आपकी आवाज़ को समझ लेगा।</p>
+    </div>
+    <div class="col-lg-4 text-center">
+        <div class="mic-animation mx-auto d-flex align-items-center justify-content-center rounded-circle bg-danger text-white shadow" style="width: 100px; height: 100px; font-size: 3rem;">
+            <i class="fas fa-microphone"></i>
+        </div>
+    </div>
+</div>
+{% endblock %}
